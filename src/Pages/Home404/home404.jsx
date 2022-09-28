@@ -1,8 +1,10 @@
+import { Title } from "@Components";
+
 const Home404 = () => {
   return (
-    <div>
-      <h1>Home404</h1>
-    </div>
+    <>
+      <Title text="Error 404" color="teal.500" />
+    </>
   );
 };
 
