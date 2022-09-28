@@ -13,7 +13,7 @@ export default defineConfig({
       "@Errors": path.resolve(__dirname, "src/Errors"),
       "@Hooks": path.resolve(__dirname, "src/Hooks"),
       "@Pages": path.resolve(__dirname, "src/Pages"),
-      "@Style-components": path.resolve(__dirname, "src/Style-components"),
+      "@Style-components": path.resolve(__dirname, "src/Styled-components"),
       "@Utils": path.resolve(__dirname, "src/Utils"),
       "@Services": path.resolve(__dirname, "src/Services"),
     },

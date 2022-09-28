@@ -1,3 +1,4 @@
+import styled from "styled-components";
 import { Text } from "@chakra-ui/react ";
 
 const TextStyle = styled(Text)`

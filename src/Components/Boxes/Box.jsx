@@ -1,18 +1,33 @@
-import { Box, Flex, Text } from "@chakra-ui/react ";
+import { Box, Flex, IconButton } from "@chakra-ui/react ";
 import { TriangleUpIcon, TriangleDownIcon } from "@chakra-ui/icons";
 import PropTypes from "prop-types";
+import { TextStyle } from "@Style-components";
 
-const Boxes = ({ text, number }) => {
+const Boxes = ({ subtitle, count }) => {
+  const { fontSize, color, text } = subtitle;
+  const { fontSize: fontSizeNumber, color: colorNumber, number } = count;
   return (
     <>
       <Box>
-        <Text fontSize="4xl">{text}</Text>
+        <TextStyle fontSize={fontSize} color={color}>
+          {text}
+        </TextStyle>
         <Flex justifyContent="space-around" alignItems="center">
-          <span>
-            <TriangleUpIcon />
+          <IconButton
+            variant="outline"
+            colorScheme="black"
+            aria-label="Up"
+            icon={<TriangleUpIcon />}
+          />
+          <TextStyle fontSize={fontSizeNumber} color={colorNumber}>
             {number}
-            <TriangleDownIcon />
-          </span>
+          </TextStyle>
+          <IconButton
+            variant="outline"
+            colorScheme="black"
+            aria-lable="down"
+            icon={<TriangleDownIcon />}
+          />
         </Flex>
       </Box>
     </>
@@ -20,8 +35,16 @@ const Boxes = ({ text, number }) => {
 };
 
 Boxes.propTypes = {
-  text: PropTypes.string.isRequired,
-  number: PropTypes.number.isRequired,
+  subtitle: PropTypes.shape({
+    fontSize: PropTypes.string,
+    color: PropTypes.string,
+    text: PropTypes.string,
+  }),
+  count: PropTypes.shape({
+    fontSize: PropTypes.string,
+    color: PropTypes.string,
+    number: PropTypes.number,
+  }),
 };
 
 export default Boxes;

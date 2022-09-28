@@ -8,8 +8,30 @@ const Home = () => {
         <Box w="30vw">
           <Title text="25 + 5 Clock" color="white" />
           <Flex mt="10" mb="10" justifyContent="space-between">
-            <Boxes text="Break Length" number={5} />
-            <Boxes text="Session Length" number={25} />
+            <Boxes
+              subtitle={{
+                fontSize: "4xl",
+                color: "white",
+                text: "Break Length",
+              }}
+              count={{
+                fontSize: "2xl",
+                color: "white",
+                number: 3,
+              }}
+            />
+            <Boxes
+              subtitle={{
+                fontSize: "4xl",
+                color: "white",
+                text: "Session Length",
+              }}
+              count={{
+                fontSize: "2xl",
+                color: "white",
+                number: 25,
+              }}
+            />
           </Flex>
         </Box>
       </Center>
