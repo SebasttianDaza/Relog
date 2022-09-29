@@ -1,5 +1,6 @@
 import { Center, Box, Flex } from "@chakra-ui/react";
-import { Title, Boxes } from "@Components";
+import { Title, Boxes, BoxContainer, IconButtons } from "@Components";
+import { TextStyle } from "@Style-components";
 
 const Home = () => {
   return (
@@ -33,6 +34,43 @@ const Home = () => {
               }}
             />
           </Flex>
+          <BoxContainer
+            subtitle={{
+              fontSize: "2xl",
+              color: "white",
+              text: "Session",
+            }}
+          >
+            <TextStyle fontSize="5xl" color="white">
+              25:00
+            </TextStyle>
+          </BoxContainer>
+          <Flex justifyContent="space-around" mt="10" mb="10">
+            <IconButtons
+              settings={{
+                variant: null,
+                colorScheme: "blue",
+                ariaLabel: "Start",
+              }}
+            />
+            <IconButtons
+              settings={{
+                variant: null,
+                colorScheme: "blue",
+                ariaLabel: "Start",
+              }}
+            />
+            <IconButtons
+              settings={{
+                variant: null,
+                colorScheme: "blue",
+                ariaLabel: "Start",
+              }}
+            />
+          </Flex>
+          <TextStyle fontSize="1xl" color="white">
+            Created and designed by Sebastian Daza
+          </TextStyle>
         </Box>
       </Center>
     </>
