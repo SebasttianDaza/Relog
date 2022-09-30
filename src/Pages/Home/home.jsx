@@ -1,10 +1,11 @@
-import { useState } from "react";
-import { Center, Box, Flex } from "@chakra-ui/react";
+import { useState, useEffect } from "react";
+import { Center, Box, Flex, useMediaQuery } from "@chakra-ui/react";
 import { Title, Boxes, BoxContainer, IconButtons } from "@Components";
 import { TextStyle } from "@Style-components";
-import { useEffect } from "react";
+import { RepeatIcon } from "@chakra-ui/icons";
 
 const Home = () => {
+  const [isLargerThan768] = useMediaQuery("(min-width: 768px)");
   const [isBreakLength, setIsBreakLength] = useState(5);
   const [isSessionLength, setIsSessionLength] = useState(25);
   const [isResponse, setIsResponse] = useState(2500);
@@ -24,19 +25,19 @@ const Home = () => {
   const handleSessionLength = (e) => {
     let num = isResponse.toString().slice(0, 2);
     if (e.target.id === "up") {
+      setIsSessionLength((prev) => prev + 1);
       if (parseInt(num) !== isSessionLength) {
         setIsResponse(isSessionLength + "00");
       }
-      setIsSessionLength((prev) => prev + 1);
       setIsResponse(parseInt(num) + 1 + "00");
     }
     if (e.target.id === "down") {
       let num = isResponse.toString().slice(0, 2);
       if (isSessionLength > 1) {
+        setIsSessionLength((prev) => prev - 1);
         if (parseInt(num) !== isSessionLength) {
           setIsResponse(isSessionLength + "00");
         }
-        setIsSessionLength((prev) => prev - 1);
         setIsResponse(parseInt(num) - 1 + "00");
       }
     }
@@ -68,7 +69,7 @@ const Home = () => {
   return (
     <>
       <Center bg="blue" h="100vh">
-        <Box w="30vw">
+        <Box w={isLargerThan768 ? "40%" : "100%"}>
           <Title text="25 + 5 Clock" color="white" />
           <Flex mt="10" mb="10" justifyContent="space-between">
             <Boxes
@@ -106,8 +107,8 @@ const Home = () => {
             }}
           >
             <TextStyle fontSize="5xl" color="white">
-              {/* isResponse separarlo por una dos puntos */}
-              {isResponse.toString()}
+              {/* isResponse slice : like relog or watch */}
+              {isResponse.toString().slice(0, 2) + `:` + isResponse.toString().slice(2)}
             </TextStyle>
           </BoxContainer>
           <Flex justifyContent="space-around" mt="10" mb="10">
@@ -125,6 +126,7 @@ const Home = () => {
                 colorScheme: "blue",
                 ariaLabel: "Start",
               }}
+              icon={<RepeatIcon />}
               onClick={() => reset()}
             />
           </Flex>

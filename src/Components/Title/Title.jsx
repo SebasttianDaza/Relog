@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 const Title = ({ text, color }) => {
   return (
-    <Heading as="h1" size="4xl" color={color}>
+    <Heading as="h1" size="4xl" color={color} textAlign="center">
       {text}
     </Heading>
   );
