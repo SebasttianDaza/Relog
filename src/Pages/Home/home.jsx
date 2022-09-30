@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Center, Box, Flex, useMediaQuery } from "@chakra-ui/react";
-import { Title, Boxes, BoxContainer, IconButtons } from "@Components";
+import { Title, Boxes, BoxContainer, IconButtons, IconPlay, IconPause } from "@Components";
 import { TextStyle } from "@Style-components";
 import { RepeatIcon } from "@chakra-ui/icons";
 
@@ -118,6 +118,7 @@ const Home = () => {
                 colorScheme: "blue",
                 ariaLabel: "Start",
               }}
+              icon={isPlay ? <IconPause /> : <IconPlay />}
               onClick={() => setIsPlay((prev) => !prev)}
             />
             <IconButtons
