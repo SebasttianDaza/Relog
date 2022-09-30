@@ -16,6 +16,7 @@ export default defineConfig({
       "@Style-components": path.resolve(__dirname, "src/Styled-components"),
       "@Utils": path.resolve(__dirname, "src/Utils"),
       "@Services": path.resolve(__dirname, "src/Services"),
+      "@Themes": path.resolve(__dirname, "src/Themes"),
     },
   },
 });
